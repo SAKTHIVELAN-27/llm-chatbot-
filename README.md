@@ -1,36 +1,47 @@
 # Know About Sakthivelan
 
-This is a small Flask-based chatbot that answers questions about Sakthivelan using a local knowledge base. It runs on your machine and responds from the data stored in `knowledge.json`.
+Know About Sakthivelan is a simple Flask chatbot project built to answer questions about Sakthivelan from a local knowledge base. It is meant to act like a personal portfolio assistant, where visitors can ask about education, skills, projects, achievements, and contact details in a quick and easy way.
 
-## What it can do
+The bot does not depend on any external API. Instead, it reads predefined question and answer pairs from `knowledge.json` and returns the closest matching response based on the words in your message. That makes the project lightweight, fast, and easy to customize.
 
-- Answer questions about Sakthivelan's background
-- Share details about skills, education, and projects
-- Tell you about certificates, achievements, and roles
-- Provide contact information
+## What this repo is for
 
-## Project files
+This repository is useful if you want a small chatbot-style portfolio assistant, a beginner-friendly Flask project, or a simple example of keyword-based chat handling. It is also easy to extend by adding more intents and responses inside the knowledge file.
 
-- `app.py` starts the Flask web app and exposes the chat endpoint
-- `chatbot.py` matches user messages against the knowledge base
-- `knowledge.json` stores the questions and answers the bot knows
-- `templates/index.html` contains the chat interface
+## How it works
 
-## How to run it
+- The browser UI sends your message to the Flask server
+- `chatbot.py` checks the message against keywords stored in `knowledge.json`
+- The best matching response is returned to the front end
+- The chat interface shows the answer inside the page without reloading
 
-1. Install Flask if you do not already have it:
+## Main files
+
+- `app.py` starts the Flask app and exposes the `/chat` endpoint
+- `chatbot.py` handles message matching and response selection
+- `knowledge.json` contains the bot's knowledge base
+- `templates/index.html` contains the user interface
+
+## How to open and run this repo
+
+1. Open the folder in VS Code or any code editor.
+2. Make sure Python is installed on your system.
+3. Open the terminal inside the project folder.
+4. Install Flask if it is not already installed:
 
    ```bash
    pip install flask
    ```
 
-2. Start the app:
+5. Start the application:
 
    ```bash
    python app.py
    ```
 
-3. Open the local address shown in the terminal, usually `http://127.0.0.1:5000/`.
+6. Open the local address shown in the terminal, usually `http://127.0.0.1:5000/`.
+
+If you are using VS Code, you can also right-click the folder and choose Open in Integrated Terminal before running the command above.
 
 ## Example questions
 
@@ -40,6 +51,10 @@ This is a small Flask-based chatbot that answers questions about Sakthivelan usi
 - What certificates does he have?
 - How can I contact him?
 
+## Customization
+
+If you want to add more answers, just open `knowledge.json` and add new keywords and responses. You can also update the UI text in `templates/index.html` to match your own portfolio style.
+
 ## Notes
 
-The bot is keyword based, so it works best when you ask using simple phrases related to the topics listed above.
+This chatbot works best with simple, direct questions. Since it uses keyword matching, the clearer your question is, the easier it is for the bot to return the right response.
